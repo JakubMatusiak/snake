@@ -4,6 +4,7 @@
 #include <ctime>
 #include "game.h"
 
+
 extern int score;
 
 int gridX,gridY;
@@ -12,6 +13,7 @@ bool food=true;
 int foodX,foodY;
 short sDirection=RIGHT;
 extern bool gameOver;
+
 
 int posX[60]={20,20,20,20,20},posY[60]={20,19,18,17,16};
 
@@ -89,6 +91,21 @@ void drawSnake()
             snake_length=MAX;
         food=true;
        }
+
+}
+int posX3=20,posY3=20;
+void drawSnake2()
+{
+        if(sDirection==F1)
+        posY3++;
+    else if (sDirection==F2)
+        posY3--;
+    else if (sDirection==F4)
+        posX3++;
+    else if (sDirection==F3)
+        posX3--;
+        glColor3f(1.0,0.0,0.0);
+    glRectd(posX3,posY3,posX3+1,posY3+1);
 }
 
 void drawFood()
@@ -109,3 +126,4 @@ void random(int &x,int &y)
     x= _min + rand() %(_maxX-_min);
     y= _min + rand() %(_maxY-_min);
 }
+
